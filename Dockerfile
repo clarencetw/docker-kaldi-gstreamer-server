@@ -1,5 +1,4 @@
 FROM debian:9
-MAINTAINER Eduardo Silva <zedudu@gmail.com>
 
 RUN apt-get update && apt-get install -y  \
     procps \
@@ -76,3 +75,7 @@ COPY start.sh stop.sh /opt/
 
 RUN chmod +x /opt/start.sh && \
     chmod +x /opt/stop.sh 
+
+WORKDIR /opt/models
+
+ENTRYPOINT ["/opt/start.sh"]
